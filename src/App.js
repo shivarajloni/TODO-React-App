@@ -27,35 +27,33 @@ class App extends React.Component {
     };
   }
 
-  //    addItem(todoValue){
-  //      if (todoValue !== "") {
-  //        const newItem ={
-  //          id: Date.now(),
-  //          value: todoValue,
-  //          isDone: false
-  //        };
-  //        const list = [...this.state.list];
-  //        list.push(newItem);
+    addItem(todoValue){
+      if (todoValue !== "") {
+        const newItem = {
+          id: Date.now(),
+          value: todoValue,
+          isDone: false
+        };
+        const list = [...this.state.list];     // All the values in todoValue are appended in list
+        list.push(newItem);
+
+        this.setState({
+          list,
+          newItem: ""
+        });
+      }
+    }
 
 
-  //        this.setState({
-  //          list,
-  //          newItem: ""
-  //        });
-  //      }
-  //    }
+    deleteItem(id){
+      const list = [...this.state.list];    // we have a copy of list items
+      const updatedlist = list.filter(item => item.id !== id);
+      this.setState({list: updatedlist});
+    }
 
-
-  //    deleteItem(id){
-  //      const list = [...this.state.list];
-  //      const updatedlist = list.filter(item => item.id !== id);
-  //      this.setState({list: updatedlist})
-
-  //    }
-
-  //    updateInput(input){
-  //      this.setState({newItem: input});
-  //    }
+    updateInput(input){
+      this.setState({newItem: input});
+    }
 
 
 render(){
@@ -67,16 +65,16 @@ render(){
             Add an Item....
             <br/>
         <input
-           type="text"
-           className="input-text"
-           placeholder="Write a Todo"
-           required 
-           value={this.state.newItem}
-           onChange={e => this.updateInput(e.target.value)}
+          type="text"
+          className="input-text"
+          placeholder="Write a Todo"
+          required 
+          value={this.state.newItem}           // updating the new item to the list!
+          onChange={e => this.updateInput(e.target.value)}
           />
           <button
             className="add-btn"
-            onClick={() => this.addItem(this.state.newItem)}
+            onClick={() => this.addItem(this.state.newItem)}   // adds the new item
             disabled={!this.state.newItem.length}
             >
             Add Todo
@@ -84,7 +82,7 @@ render(){
           
           <div className="list">
             <ul>
-                 {this.state.list.map(item => {
+                 {this.state.list.map(item => {       // loop through the item list using "map"
                    return(
                         <li key={item.id}>
                           <input
@@ -105,7 +103,7 @@ render(){
                  })}
                  <li>
                    <input type="checkbox" name="" id=""/>
-                   Record videos
+                   Add your Daily tasks here
                    <button className="btn">Delete</button>
                  </li>
                </ul>
