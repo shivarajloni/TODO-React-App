@@ -105,18 +105,20 @@ render(){
                           </button>
                         </li>
                    );
-                 })}
-                 <li>
-                   <input type="checkbox" name="" id=""/>
+                 }
+                )
+              }
+                 <li>                                                       
+                   <input type="checkbox" name="" id=""/>                      
                    Add your Daily tasks here
                    <button className="btn">Delete</button>
-                 </li>
+                 </li>          
                </ul>
              </div>
          </div>
         </div>
    );
-   
+                                          // need to implement the checkbox method/func.
  }
 
 }
