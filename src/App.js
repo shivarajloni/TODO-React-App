@@ -86,15 +86,20 @@ render(){
                    return(
                         <li key={item.id}>
                           <input
-                          type="checkbox"
-                          name="isDone"
-                          checked={item.isDone}
-                          onChange={()=> {}}
+                            type="checkbox"
+                            name="isDone"
+                            checked = {item.isDone}
+                            onChange = { ()=> {                 // callback when any change is occurred!
+                                                              // implement it later ON!!    
+                            }
+                          }
                           />
+                          
                           {item.value}
+                          
                           <button
-                          className="btn"
-                          onClick={() => this.deleteItem(item.id)}
+                            className="btn"
+                            onClick={ () => this.deleteItem(item.id) }     // deleting the item using ID
                           >
                             Delete
                           </button>
