@@ -19,13 +19,13 @@ import "./App.css";
 
 class App extends React.Component {
 
-  // constructor(props){
-  //   super(props);
-  //   this.state = {
-  //     newItem: "",
-  //     list: []
-  //   };
-  // }
+  constructor(props){
+    super(props);
+    this.state = {
+      newItem: "",
+      list: []
+    };
+  }
 
   //    addItem(todoValue){
   //      if (todoValue !== "") {
@@ -70,7 +70,8 @@ render(){
            type="text"
            className="input-text"
            placeholder="Write a Todo"
-           required value={this.state.newItem}
+           required 
+           value={this.state.newItem}
            onChange={e => this.updateInput(e.target.value)}
           />
           <button
@@ -81,34 +82,34 @@ render(){
             Add Todo
           </button>
           
-          // <div className="list">
-          //   <ul>
-          //        {this.state.list.map(item => {
-          //          return(
-          //               <li key={item.id}>
-          //                 <input
-          //                 type="checkbox"
-          //                 name="isDone"
-          //                 checked={item.isDone}
-          //                 onChange={()=> {}}
-          //                 />
-          //                 {item.value}
-          //                 <button
-          //                 className="btn"
-          //                 onClick={() => this.deleteItem(item.id)}
-          //                 >
-          //                   Delete
-          //                 </button>
-          //               </li>
-          //          );
-          //        })}
-          //        <li>
-          //          <input type="checkbox" name="" id=""/>
-          //          Record videos
-          //          <button className="btn">Delete</button>
-          //        </li>
-          //      </ul>
-          //    </div>
+          <div className="list">
+            <ul>
+                 {this.state.list.map(item => {
+                   return(
+                        <li key={item.id}>
+                          <input
+                          type="checkbox"
+                          name="isDone"
+                          checked={item.isDone}
+                          onChange={()=> {}}
+                          />
+                          {item.value}
+                          <button
+                          className="btn"
+                          onClick={() => this.deleteItem(item.id)}
+                          >
+                            Delete
+                          </button>
+                        </li>
+                   );
+                 })}
+                 <li>
+                   <input type="checkbox" name="" id=""/>
+                   Record videos
+                   <button className="btn">Delete</button>
+                 </li>
+               </ul>
+             </div>
          </div>
         </div>
    );
